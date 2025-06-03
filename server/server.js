@@ -28,7 +28,11 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 
-// import { verifyToken } from './middleware/authMiddleware.js';
+import professionalRoutes from './routes/professionalRoutes.js';
+import { verifyToken } from './middleware/authMiddleware.js';
+
+
+
 
 
 dotenv.config();
@@ -40,6 +44,12 @@ app.use(express.json());
 import authRoutes from './routes/authRoutes.js';
 app.use('/api/auth', authRoutes);
 
+
+import bookingRoutes from './routes/bookingRoutes.js';
+app.use('/api/bookings', bookingRoutes);
+
+app.use('/api/professionals', professionalRoutes);
+
 const PORT = process.env.PORT || 3000;
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
@@ -48,6 +58,8 @@ mongoose.connect(process.env.MONGO_URI)
   })
   .catch(err => console.log(err));
 
-// app.get("/api/protected", verifyToken, (req, res) => {
-//   res.json({ message: `Hello ${req.user.role}` });
-// });
+app.get("/api/protected", verifyToken, (req, res) => {
+  res.json({ message: `Hello ${req.user.role}` });
+});
+
+
