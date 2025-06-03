@@ -28,11 +28,10 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 
+
+
 import professionalRoutes from './routes/professionalRoutes.js';
 import { verifyToken } from './middleware/authMiddleware.js';
-
-
-
 
 
 dotenv.config();
