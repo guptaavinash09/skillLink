@@ -28,6 +28,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 
+import professionalRoutes from './routes/professionalRoutes.js';
 // import { verifyToken } from './middleware/authMiddleware.js';
 
 
@@ -51,3 +52,6 @@ mongoose.connect(process.env.MONGO_URI)
 // app.get("/api/protected", verifyToken, (req, res) => {
 //   res.json({ message: `Hello ${req.user.role}` });
 // });
+
+
+app.use('/api/professionals', professionalRoutes);
