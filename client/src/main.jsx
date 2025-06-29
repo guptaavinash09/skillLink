@@ -14,10 +14,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </AuthProvider>
   </React.StrictMode>
 );
-
-import axios from "axios";
-
-axios.defaults.baseURL = "http://localhost:3000";
-axios.defaults.withCredentials = true; // for cookies (e.g. auth)
-
-export default axios;
