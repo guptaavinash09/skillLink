@@ -1,35 +1,51 @@
-import { Routes, Route, Navigate } from "react-router-dom";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import { useAuth } from "./context/AuthContext";
-import CustomerDashboard from "./pages/dashboards/CustomerDashboard";
-import ProfessionalDashboard from "./pages/dashboards/ProfessionalDashboard";
-import AdminDashboard from "./pages/dashboards/AdminDashboard";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AuthProvider from './context/AuthContext';
+
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import CustomerDashboard from './pages/CustomerDashboard';
+import ProfessionalDashboard from './pages/ProfessionalDashboard';
+import AdminDashboard from './pages/AdminDashboard';
+
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
-  const { user } = useAuth();
-
-  const renderDashboard = () => {
-    if (!user) return <Navigate to="/login" />;
-    switch (user.role) {
-      case "customer":
-        return <CustomerDashboard />;
-      case "professional":
-        return <ProfessionalDashboard />;
-      case "admin":
-        return <AdminDashboard />;
-      default:
-        return <Navigate to="/login" />;
-    }
-  };
-
   return (
-    <Routes>
-      <Route path="/" element={<Navigate to="/login" />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/dashboard" element={renderDashboard()} />
-    </Routes>
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+
+          <Route
+            path="/dashboard/customer"
+            element={
+              <ProtectedRoute role="customer">
+                <CustomerDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/professional"
+            element={
+              <ProtectedRoute role="professional">
+                <ProfessionalDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/admin"
+            element={
+              <ProtectedRoute role="admin">
+                <AdminDashboard />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 
