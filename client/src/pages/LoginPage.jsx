@@ -53,14 +53,29 @@ const LoginPage = () => {
           placeholder="Password"
           onChange={handleChange}
           className="w-full p-2 border"
+//           required
+//         />
+//         <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">
+//           Login
+//         </button>
+//       </form>
+//     </div>
+//   );
+// };
+
+// // I need to make some changes so that i am doing this
+
+// export default LoginPage;
+
+
+
+handleChange}
+          className="w-full p-2 border"
           required
         />
-        <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">
-          Login
-        </button>
-      </form>
-    </div>
-  );
-};
-
-export default LoginPage;
+        <input
+          name="password"
+          type="password"
+          placeholder="Password"
+          onChange={handleChange}
+          className="w-full p-2 border"
