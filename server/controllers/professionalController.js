@@ -16,6 +16,17 @@ export const updateProfessionalProfile = async (req, res) => {
           availability,
           isVerified: false // admin will verify later
         }
+   
+        
+
+
+
+
+
+
+
+
+
       },
       { new: true }
     );
