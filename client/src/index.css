@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+
+const userSchema = new mongoose.Schema({
+    // ... other fields like name, email, role, etc.
+    role: {
+      type: String,
+      enum: ['customer', 'professional', 'admin'],
+      required: true
+    },
+    professionalDetails: {
+      profession: String,
+      experience: String,
+      skills: [String],
+      location: String,
+      pricing: String,
+      availability: String,
+      isVerified: {
+        type: Boolean,
+        default: false,
+      }
+    }
+  });
+  
