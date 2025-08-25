@@ -20,6 +20,14 @@ export default defineConfig([
         ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },
         sourceType: 'module',
+        switch (key) {
+          case value:
+            
+            break;
+        
+          default:
+            break;
+        }
       },
     },
     rules: {
