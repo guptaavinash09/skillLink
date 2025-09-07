@@ -52,3 +52,5 @@ const RegisterPage = () => {
 };
 
 export default RegisterPage;
+
+// some new thing must be put in the new-feature
