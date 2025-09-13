@@ -19,9 +19,21 @@ const LoginPage = () => {
 
     try {
       const res = await axios.post('/auth/login', formData);
+<<<<<<< HEAD
       login(res.data); // save user data + token in context + localStorage
       alert('Login successful!');
       navigate('/');
+=======
+      login(res.data); // Save user data (e.g., token) in context/localStorage
+      alert('Login successful!');
+
+      // ✅ Role-based redirection
+      if (res.data.role === 'customer') navigate('/dashboard/customer');
+      else if (res.data.role === 'professional') navigate('/dashboard/professional');
+      else if (res.data.role === 'admin') navigate('/dashboard/admin');
+      else navigate('/'); // fallback route
+
+>>>>>>> new-feature
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed');
     }
@@ -47,6 +59,7 @@ const LoginPage = () => {
           placeholder="Password"
           onChange={handleChange}
           className="w-full p-2 border"
+<<<<<<< HEAD
           required
         />
         <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">
@@ -58,3 +71,31 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+=======
+//           required
+//         />
+//         <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">
+//           Login
+//         </button>
+//       </form>
+//     </div>
+//   );
+// };
+
+// // I need to make some changes so that i am doing this
+
+// export default LoginPage;
+
+
+
+handleChange}
+          className="w-full p-2 border"
+          required
+        />
+        <input
+          name="password"
+          type="password"
+          placeholder="Password"
+          onChange={handleChange}
+          className="w-full p-2 border"
+>>>>>>> new-feature

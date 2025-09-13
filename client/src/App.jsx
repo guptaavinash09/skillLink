@@ -1,10 +1,21 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AuthProvider from './context/AuthContext';
+<<<<<<< HEAD
 import ProfessionalProfilePage from './pages/ProfessionalProfilePage';
+=======
+>>>>>>> new-feature
 
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+<<<<<<< HEAD
+=======
+import CustomerDashboard from './pages/CustomerDashboard';
+import ProfessionalDashboard from './pages/ProfessionalDashboard';
+import AdminDashboard from './pages/AdminDashboard';
+
+import ProtectedRoute from './components/ProtectedRoute';
+>>>>>>> new-feature
 
 function App() {
   return (
@@ -14,8 +25,36 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+<<<<<<< HEAD
           <Route path="/profile" element={<ProfessionalProfilePage />} />
 
+=======
+
+          <Route
+            path="/dashboard/customer"
+            element={
+              <ProtectedRoute role="customer">
+                <CustomerDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/professional"
+            element={
+              <ProtectedRoute role="professional">
+                <ProfessionalDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/admin"
+            element={
+              <ProtectedRoute role="admin">
+                <AdminDashboard />
+              </ProtectedRoute>
+            }
+          />
+>>>>>>> new-feature
         </Routes>
       </Router>
     </AuthProvider>

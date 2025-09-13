@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -68,8 +69,17 @@ const HomePage = () => {
           </button>
         </div>
       )}
+=======
+import React from 'react';
+
+const HomePage = () => {
+  return (
+    <div className="p-4 text-xl">
+      <h1>Welcome to SkillLink!</h1>
+>>>>>>> new-feature
     </div>
   );
 };
 
 export default HomePage;
+{/* IN this directory her esome wrong code is pushed */}

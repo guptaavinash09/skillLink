@@ -44,4 +44,7 @@ export const requireRole = (role) => (req, res, next) => {
   }
   next();
 };
+<<<<<<< HEAD
 
+=======
+>>>>>>> new-feature

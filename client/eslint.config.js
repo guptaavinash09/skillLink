@@ -20,11 +20,18 @@ export default defineConfig([
         ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },
         sourceType: 'module',
+<<<<<<< HEAD
         swi
+=======
+>>>>>>> new-feature
       },
     },
     rules: {
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
+<<<<<<< HEAD
 ])
+=======
+])
+>>>>>>> new-feature

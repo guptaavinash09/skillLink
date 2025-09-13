@@ -16,6 +16,7 @@
 import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
+<<<<<<< HEAD
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     phone: { type: String },
@@ -35,5 +36,14 @@ const userSchema = new mongoose.Schema({
   
   }, { timestamps: true });
   
+=======
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  phone: { type: String },
+  password: { type: String, required: true },
+  isBlocked: { type: Boolean, default: false },
+  role: { type: String, enum: ['customer', 'professional', 'admin'], default: 'customer' },
+}, { timestamps: true });
+>>>>>>> new-feature
 
 export default mongoose.model('User', userSchema);

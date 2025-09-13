@@ -16,6 +16,20 @@ export const updateProfessionalProfile = async (req, res) => {
           availability,
           isVerified: false // admin will verify later
         }
+<<<<<<< HEAD
+=======
+   
+        
+
+
+
+
+
+
+
+
+
+>>>>>>> new-feature
       },
       { new: true }
     );
@@ -44,4 +58,8 @@ export const getProfessionals = async (req, res) => {
   } catch (err) {
     res.status(500).json({ message: "Error fetching professionals", error: err.message });
   }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> new-feature
