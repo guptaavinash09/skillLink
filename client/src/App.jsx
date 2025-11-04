@@ -17,6 +17,8 @@ import AdminDashboard from './pages/AdminDashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 >>>>>>> new-feature
 
+
+
 function App() {
   return (
     <AuthProvider>
